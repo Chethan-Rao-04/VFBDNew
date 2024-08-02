@@ -39,7 +39,7 @@ public class ParticleSystemController : MonoBehaviour
         vibrationFrequency = 7f;  // Default value, adjust as needed
 
         horizontalForceSlider.minValue = 4f;
-        horizontalForceSlider.maxValue = 10f;
+        horizontalForceSlider.maxValue = 6.2f;  // Updated max value to 6.2
         horizontalForceSlider.value = startSpeed;
 
         vibrationFrequencySlider.minValue = 1f;
@@ -96,7 +96,7 @@ public class ParticleSystemController : MonoBehaviour
 
     void ChangeStartSpeed(float value)
     {
-        startSpeed = Mathf.Clamp(value, 4f, 10f);
+        startSpeed = Mathf.Clamp(value, 4f, 6.2f);  // Updated clamp max value to 6.2
         mainModule.startSpeed = startSpeed;
         Debug.Log("Start Speed changed to: " + startSpeed); // Debug statement to confirm the change
     }
