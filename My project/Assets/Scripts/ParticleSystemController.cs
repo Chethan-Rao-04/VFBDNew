@@ -35,21 +35,21 @@ public class ParticleSystemController : MonoBehaviour
         particles = new ParticleSystem.Particle[maxParticles];
 
         // Set initial values of sliders and their ranges
-        startSpeed = 4f;  // Initial start speed
+        startSpeed = 10f;  // Initial start speed
         vibrationFrequency = 7f;  // Default value, adjust as needed
 
         horizontalForceSlider.minValue = 4f;
-        horizontalForceSlider.maxValue = 6.2f;  // Updated max value to 6.2
+        horizontalForceSlider.maxValue = 10f;
         horizontalForceSlider.value = startSpeed;
 
         vibrationFrequencySlider.minValue = 1f;
-        vibrationFrequencySlider.maxValue = 20f;
+        vibrationFrequencySlider.maxValue = 7f;
         vibrationFrequencySlider.value = vibrationFrequency;
 
         // Set initial start speed of particles
         mainModule.startSpeed = startSpeed;
-        // Set initial start size to 0
-        mainModule.startSize = 0f;
+        // Set initial start size to 1
+        mainModule.startSize = 1f;
 
         // Add listeners to sliders
         horizontalForceSlider.onValueChanged.AddListener(ChangeStartSpeed);
@@ -96,7 +96,7 @@ public class ParticleSystemController : MonoBehaviour
 
     void ChangeStartSpeed(float value)
     {
-        startSpeed = Mathf.Clamp(value, 4f, 6.2f);  // Updated clamp max value to 6.2
+        startSpeed = Mathf.Clamp(value, 4f, 10f);
         mainModule.startSpeed = startSpeed;
         Debug.Log("Start Speed changed to: " + startSpeed); // Debug statement to confirm the change
     }
@@ -111,7 +111,7 @@ public class ParticleSystemController : MonoBehaviour
     {
         particleSystemComponent.Play();
         emissionModule.enabled = true;
-        mainModule.startSize = 2.5f;  // Set start size to 2.5 when playing
+        mainModule.startSize = 1f;  // Set start size to 1 when playing
         Debug.Log("Particles are playing");
     }
 }
