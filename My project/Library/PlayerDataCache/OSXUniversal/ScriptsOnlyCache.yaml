@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - ArrowController
     - BackButtonHandler
     - CreditsPage
+    - DrynessCalculator
     - FluidizedBedParticleAnimator
     - Game.FullscreenToggle
     - Game.QualityDropdown
@@ -16,6 +17,8 @@ ScriptsOnlyBuild:
     - ModelRotator
     - ParticleSystemController
     - Rotatable
+    - SliderValueDisplay
+    - YahiaDroubiTask.CameraRig
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputActionReference
@@ -43,6 +46,7 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
@@ -102,6 +106,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
     - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: DrynessCalculator
+    methodName: CalculateDrynessFraction
   - assembly: Assembly-CSharp
     fullTypeName: HomePage
     methodName: GoToCreditsScene
@@ -203,6 +210,75 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    Assets/Scenes/CalculationScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 16694}
+    - Class: 114
+      Script: {instanceID: 17326}
+    - Class: 114
+      Script: {instanceID: 17794}
+    - Class: 114
+      Script: {instanceID: 17996}
+    - Class: 114
+      Script: {instanceID: 18302}
+    - Class: 114
+      Script: {instanceID: 19386}
+    - Class: 114
+      Script: {instanceID: 19662}
+    - Class: 114
+      Script: {instanceID: 20324}
+    - Class: 114
+      Script: {instanceID: 20404}
+    - Class: 114
+      Script: {instanceID: 20672}
+    - Class: 114
+      Script: {instanceID: 20992}
+    - Class: 114
+      Script: {instanceID: 21162}
+    - Class: 114
+      Script: {instanceID: 21508}
+    - Class: 114
+      Script: {instanceID: 180994}
+    - Class: 114
+      Script: {instanceID: 180998}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/CreditsScene.unity:
     - Class: 1
@@ -316,7 +392,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/Scenes/LoaderPage.unity:
+    Assets/Scenes/LoadPage.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -336,6 +412,57 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 17794}
+    - Class: 114
+      Script: {instanceID: 17996}
+    - Class: 114
+      Script: {instanceID: 20992}
+    - Class: 114
+      Script: {instanceID: 21508}
+    - Class: 114
+      Script: {instanceID: 24270}
+    - Class: 114
+      Script: {instanceID: 24350}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 220
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/OldLoadPage.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -422,6 +549,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 16694}
     - Class: 114
@@ -431,23 +560,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18302}
     - Class: 114
-      Script: {instanceID: 18964}
-    - Class: 114
       Script: {instanceID: 20324}
+    - Class: 114
+      Script: {instanceID: 20404}
     - Class: 114
       Script: {instanceID: 20672}
     - Class: 114
       Script: {instanceID: 20992}
     - Class: 114
-      Script: {instanceID: 21894}
+      Script: {instanceID: 21162}
     - Class: 114
-      Script: {instanceID: 22634}
+      Script: {instanceID: 21508}
+    - Class: 114
+      Script: {instanceID: 24342}
     - Class: 114
       Script: {instanceID: 24354}
     - Class: 114
       Script: {instanceID: 24428}
-    - Class: 114
-      Script: {instanceID: 36410}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -460,6 +589,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 199
       Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
@@ -467,45 +598,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 17326}
-    - Class: 114
-      Script: {instanceID: 19386}
-    - Class: 114
-      Script: {instanceID: 19662}
-    - Class: 114
-      Script: {instanceID: 20404}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
       Script: {instanceID: 0}
     Assets/Scenes/Settings.unity:
     - Class: 1
@@ -1787,12 +1879,6 @@ ScriptsOnlyBuild:
     className: ParticleMovement
   - hash:
       serializedVersion: 2
-      Hash: e82021cea23c431e2268a52608c50d61
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: HoverScript
-  - hash:
-      serializedVersion: 2
       Hash: 8cf62d44bed45f3b07e6d645bf29d6d4
     assemblyName: Assembly-CSharp
     namespaceName: YahiaDroubiTask
@@ -1869,13 +1955,26 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ParticlePath
+  - hash:
+      serializedVersion: 2
+      Hash: 647974c0abcf8a75732683b1e47487c2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DrynessCalculator
+  - hash:
+      serializedVersion: 2
+      Hash: 8615007efa6afef11824eb27f6e4b2bd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SliderValueDisplay
   platform: 2
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/CalculationScene.unity
   - Assets/Scenes/HomePage.unity
-  - Assets/Scenes/LoaderPage.unity
+  - Assets/Scenes/OldLoadPage.unity
   - Assets/Scenes/PlayScene.unity
   - Assets/Scenes/Settings.unity
   - Assets/Scenes/AnimationFBD.unity
   - Assets/Scenes/CreditsScene.unity
+  - Assets/Scenes/LoadPage.unity
   playerPath: /Users/Admin/Documents/GitHub/VFBDNew/My project/VFBDBUILD1.app
