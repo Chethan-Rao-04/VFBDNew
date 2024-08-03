@@ -83,6 +83,7 @@
     <Compile Include="Assets/PlayerMovement.cs" />
     <Compile Include="Assets/HoverImageToggle copy.cs" />
     <Compile Include="Assets/Scripts/NewBehaviourScript.cs" />
+    <Compile Include="Assets/PointHandler/HoverScript.cs" />
     <Compile Include="Assets/Scripts/ArrowController.cs" />
     <Compile Include="Assets/Scripts/BlendInfo.cs" />
     <Compile Include="Assets/Scripts/FireBunsenHandler.cs" />

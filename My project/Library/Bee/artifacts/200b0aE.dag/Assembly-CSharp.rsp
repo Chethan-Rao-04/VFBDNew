@@ -370,6 +370,7 @@
 "Assets/ParticleMovement.cs"
 "Assets/ParticlePath.cs"
 "Assets/PlayerMovement.cs"
+"Assets/PointHandler/HoverScript.cs"
 "Assets/PointHandler/ImageToggle2.cs"
 "Assets/PointHandler/ImageToggler.cs"
 "Assets/PointHandler/PointHandler.cs"
