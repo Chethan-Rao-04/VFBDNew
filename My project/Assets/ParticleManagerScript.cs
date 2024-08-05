@@ -22,7 +22,7 @@ public class ParticleManager : MonoBehaviour
             Vector3 randomPosition = RandomPointInCylinder();
             particles[i] = Instantiate(particlePrefab, randomPosition, Quaternion.identity, transform);
             velocities[i] = Random.insideUnitSphere * 0.1f;
-            StartCoroutine(ChangeColorAfterTime(particles[i], 5f));
+            StartCoroutine(ChangeColorAfterTime(particles[i], 7f)); // Updated delay to 10 seconds
         }
     }
 
