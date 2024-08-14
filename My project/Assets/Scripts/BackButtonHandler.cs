@@ -8,4 +8,9 @@ public class BackButtonHandler : MonoBehaviour
     {
         SceneManager.LoadScene("HomePage");
     }
+
+    public void GoToPlayScene()
+    {
+        SceneManager.LoadScene("NewPlayScene");
+    }
 }

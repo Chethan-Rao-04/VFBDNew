@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewLoadPage.unity
     guid: efe8a5c2f0ba52447bedf0bb2517281b
+  - enabled: 1
+    path: Assets/Scenes/NewPlayScene.unity
+    guid: 6c4f1a2e9ced14ec2be82d5c903de9d6
   m_configObjects: {}

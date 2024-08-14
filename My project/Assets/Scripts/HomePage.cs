@@ -8,12 +8,12 @@ public class HomePage : MonoBehaviour
 
     public void GoToPlayScene()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("NewPlayScene");
     }
     // Load the scene associated with gameplay
     public void GoToLoaderPageScene()
     {
-        SceneManager.LoadScene("LoaderPage");
+        SceneManager.LoadScene("NewLoadPage");
     }
 
     // Load the scene associated with credits
