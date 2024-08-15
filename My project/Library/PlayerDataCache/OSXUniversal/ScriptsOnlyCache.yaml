@@ -145,6 +145,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: ImageHandler
     methodName: ShowImage6
+  - assembly: Assembly-CSharp
+    fullTypeName: BackButtonHandler
+    methodName: GoToBackPage
   sceneClasses:
     Assets/Scenes/AnimationFBD.unity:
     - Class: 1
@@ -166,7 +169,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18008}
     - Class: 114
-      Script: {instanceID: 20868}
+      Script: {instanceID: 20870}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -209,19 +212,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18404}
     - Class: 114
-      Script: {instanceID: 18794}
+      Script: {instanceID: 18796}
     - Class: 114
-      Script: {instanceID: 19088}
+      Script: {instanceID: 19090}
     - Class: 114
-      Script: {instanceID: 20590}
+      Script: {instanceID: 20592}
     - Class: 114
-      Script: {instanceID: 20870}
+      Script: {instanceID: 20872}
     - Class: 114
-      Script: {instanceID: 21370}
+      Script: {instanceID: 21372}
     - Class: 114
-      Script: {instanceID: 22146}
+      Script: {instanceID: 22148}
     - Class: 114
-      Script: {instanceID: 22922}
+      Script: {instanceID: 22924}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -274,19 +277,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18404}
     - Class: 114
-      Script: {instanceID: 19088}
+      Script: {instanceID: 19090}
     - Class: 114
-      Script: {instanceID: 19530}
+      Script: {instanceID: 19532}
     - Class: 114
-      Script: {instanceID: 19814}
+      Script: {instanceID: 19816}
     - Class: 114
-      Script: {instanceID: 20590}
+      Script: {instanceID: 20592}
     - Class: 114
-      Script: {instanceID: 20870}
+      Script: {instanceID: 20872}
     - Class: 114
-      Script: {instanceID: 22146}
+      Script: {instanceID: 22148}
     - Class: 114
-      Script: {instanceID: 22922}
+      Script: {instanceID: 22924}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -345,23 +348,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18404}
     - Class: 114
-      Script: {instanceID: 18794}
+      Script: {instanceID: 18796}
     - Class: 114
-      Script: {instanceID: 19088}
+      Script: {instanceID: 19090}
     - Class: 114
-      Script: {instanceID: 20456}
+      Script: {instanceID: 20458}
     - Class: 114
-      Script: {instanceID: 20870}
+      Script: {instanceID: 20872}
     - Class: 114
-      Script: {instanceID: 21924}
+      Script: {instanceID: 21926}
     - Class: 114
-      Script: {instanceID: 22146}
+      Script: {instanceID: 22148}
     - Class: 114
-      Script: {instanceID: 22578}
+      Script: {instanceID: 22580}
     - Class: 114
-      Script: {instanceID: 22922}
+      Script: {instanceID: 22924}
     - Class: 114
-      Script: {instanceID: 23784}
+      Script: {instanceID: 23786}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -418,15 +421,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16676}
     - Class: 114
+      Script: {instanceID: 16684}
+    - Class: 114
       Script: {instanceID: 17858}
     - Class: 114
       Script: {instanceID: 18082}
     - Class: 114
-      Script: {instanceID: 21736}
+      Script: {instanceID: 18404}
     - Class: 114
-      Script: {instanceID: 23784}
+      Script: {instanceID: 18430}
     - Class: 114
-      Script: {instanceID: 32230}
+      Script: {instanceID: 18796}
+    - Class: 114
+      Script: {instanceID: 21738}
+    - Class: 114
+      Script: {instanceID: 23786}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -438,6 +447,8 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
       Script: {instanceID: 0}
     - Class: 223
       Script: {instanceID: 0}
@@ -481,35 +492,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18404}
     - Class: 114
-      Script: {instanceID: 18794}
+      Script: {instanceID: 18796}
     - Class: 114
-      Script: {instanceID: 19088}
+      Script: {instanceID: 19090}
     - Class: 114
-      Script: {instanceID: 19254}
+      Script: {instanceID: 19256}
     - Class: 114
-      Script: {instanceID: 20512}
+      Script: {instanceID: 20514}
     - Class: 114
-      Script: {instanceID: 20590}
+      Script: {instanceID: 20592}
     - Class: 114
-      Script: {instanceID: 20870}
+      Script: {instanceID: 20872}
     - Class: 114
-      Script: {instanceID: 21370}
+      Script: {instanceID: 21372}
     - Class: 114
-      Script: {instanceID: 21636}
+      Script: {instanceID: 21638}
     - Class: 114
-      Script: {instanceID: 21696}
+      Script: {instanceID: 21698}
     - Class: 114
-      Script: {instanceID: 21746}
+      Script: {instanceID: 21748}
     - Class: 114
-      Script: {instanceID: 22146}
+      Script: {instanceID: 22148}
     - Class: 114
-      Script: {instanceID: 22210}
+      Script: {instanceID: 22212}
     - Class: 114
-      Script: {instanceID: 22922}
+      Script: {instanceID: 22924}
     - Class: 114
-      Script: {instanceID: 23614}
+      Script: {instanceID: 23616}
     - Class: 114
-      Script: {instanceID: 56030}
+      Script: {instanceID: 40168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -857,6 +868,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: 2469e47b0867ebf5fe00812a584531cc
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: AudioSequence
   - hash:
       serializedVersion: 2
       Hash: d90629714fa6b0145fcaffc87f5c6559
@@ -1859,12 +1876,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 2469e47b0867ebf5fe00812a584531cc
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: AudioSequence
   platform: 2
   scenePathNames:
   - Assets/Scenes/HomePage.unity
