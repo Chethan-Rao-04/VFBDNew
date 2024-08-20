@@ -895,7 +895,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -956,7 +956,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: -0.26, z: -6.55}
+  m_LocalPosition: {x: -0.284, y: -0.215, z: -6.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1253,12 +1253,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8067638492163541946, guid: 9135c16b5324e8f479f4efd0acf26a5f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067638492163541946, guid: 9135c16b5324e8f479f4efd0acf26a5f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067638492163541946, guid: 9135c16b5324e8f479f4efd0acf26a5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.31
+      value: -0.42875
       objectReference: {fileID: 0}
     - target: {fileID: 8067638492163541946, guid: 9135c16b5324e8f479f4efd0acf26a5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.86
+      value: -1.2787
       objectReference: {fileID: 0}
     - target: {fileID: 8067638492163541946, guid: 9135c16b5324e8f479f4efd0acf26a5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1471,7 +1479,7 @@ Transform:
   m_GameObject: {fileID: 1746172745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.338, y: 3.376, z: 0}
+  m_LocalPosition: {x: -3.343, y: 3.397, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1940,7 +1948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c91bbeac4e67477da1bca923db2aadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 2035926435}
   audioClip1: {fileID: 8300000, guid: 74d8e4a95ddc64ef69f8c3bbcfa7d7a7, type: 3}
   audioClip2: {fileID: 8300000, guid: 7f73acab0468045ac900d79c059596f4, type: 3}
   delay: 10
@@ -1955,7 +1963,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7f73acab0468045ac900d79c059596f4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
