@@ -5,7 +5,7 @@ public class ParticleManager : MonoBehaviour
 {
     // Hardcoded values
     private const int numberOfParticles = 20; // Number of particles
-    private const float radius = 1f; // Radius of the cylinder
+    private const float radius = 0.4f; // Radius of the cylinder
     private const float length = 6f; // Length of the cylinder
 
     public GameObject particlePrefab;
@@ -21,6 +21,10 @@ public class ParticleManager : MonoBehaviour
         {
             Vector3 randomPosition = RandomPointInUpperHalfCylinder();
             particles[i] = Instantiate(particlePrefab, randomPosition, Quaternion.identity, transform);
+
+            // Reduce the size of the particle by half
+            particles[i].transform.localScale *= 0.5f;
+
             velocities[i] = Random.insideUnitSphere * 0.1f;
             StartCoroutine(ChangeColorAfterTime(particles[i], 7f)); // Delay of 7 seconds
         }
