@@ -4,7 +4,7 @@ using System.Collections;
 public class ParticleManager : MonoBehaviour
 {
     // Hardcoded values
-    private const int numberOfParticles = 40; // Number of particles
+    private const int numberOfParticles = 20; // Number of particles
     private const float radius = 1f; // Radius of the cylinder
     private const float length = 6f; // Length of the cylinder
 
@@ -19,10 +19,10 @@ public class ParticleManager : MonoBehaviour
 
         for (int i = 0; i < numberOfParticles; i++)
         {
-            Vector3 randomPosition = RandomPointInCylinder();
+            Vector3 randomPosition = RandomPointInUpperHalfCylinder();
             particles[i] = Instantiate(particlePrefab, randomPosition, Quaternion.identity, transform);
             velocities[i] = Random.insideUnitSphere * 0.1f;
-            StartCoroutine(ChangeColorAfterTime(particles[i], 7f)); // Updated delay to 10 seconds
+            StartCoroutine(ChangeColorAfterTime(particles[i], 7f)); // Delay of 7 seconds
         }
     }
 
@@ -35,46 +35,49 @@ public class ParticleManager : MonoBehaviour
 
             position += velocity;
 
-            // Check for collisions with the cylindrical boundary in 2D
+            // Check for collisions with the cylindrical boundary in 2D (y and z axis)
             float distanceFromCenter = Mathf.Sqrt(position.y * position.y + position.z * position.z);
             if (distanceFromCenter > radius)
             {
                 // Reflect the velocity in the yz-plane
                 Vector3 normal = new Vector3(0, position.y, position.z).normalized;
                 velocity = Vector3.Reflect(velocity, normal);
-                position = particles[i].transform.position + velocity;
+                position += velocity;
             }
 
-            // Check for collisions with the cylinder's length boundaries
+            // Check for collisions with the cylinder's length boundaries (x axis)
             if (position.x < -length / 2 || position.x > length / 2)
             {
                 velocity.x = -velocity.x;
-                position = particles[i].transform.position + velocity;
+                position.x = Mathf.Clamp(position.x, -length / 2, length / 2);
             }
 
-            // Clamp the position to stay within the bounds
-            position.x = Mathf.Clamp(position.x, -length / 2, length / 2);
-            float newDistanceFromCenter = Mathf.Sqrt(position.y * position.y + position.z * position.z);
-            if (newDistanceFromCenter > radius)
+            // Ensure the particle stays within the upper half of the cylinder's height (y > 0)
+            if (position.y < 0)
             {
-                float scale = radius / newDistanceFromCenter;
-                position.y *= scale;
-                position.z *= scale;
+                velocity.y = -velocity.y;
+                position.y = Mathf.Clamp(position.y, 0, radius);
             }
+
+            // Clamp the position to stay within the bounds of the cylinder
+            position.x = Mathf.Clamp(position.x, -length / 2, length / 2);
+            position.z = Mathf.Clamp(position.z, -radius, radius);
+            position.y = Mathf.Clamp(position.y, 0, Mathf.Sqrt(radius * radius - position.z * position.z));
 
             particles[i].transform.position = position;
             velocities[i] = velocity;
         }
     }
 
-    Vector3 RandomPointInCylinder()
+    // Generate a random point within the upper half of the cylinder
+    Vector3 RandomPointInUpperHalfCylinder()
     {
         float angle = Random.Range(0f, Mathf.PI * 2);
         float distance = Random.Range(0f, radius);
         float y = distance * Mathf.Cos(angle);
         float z = distance * Mathf.Sin(angle);
         float x = Random.Range(-length / 2, length / 2);
-        return new Vector3(x, y, z);
+        return new Vector3(x, Mathf.Abs(y), z); // Ensure y is positive to stay in the upper half
     }
 
     IEnumerator ChangeColorAfterTime(GameObject particle, float delay)

@@ -1,26 +1,37 @@
 ﻿<Properties StartupConfiguration="{32C3BDE6-E125-3128-82C1-25D0441455A3}|">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="961dc828-418c-4b2e-9f6a-3cabc9a50725" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ParticleManagerScript.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/OldLoadPage.unity">
     <Files>
-      <File FileName="Assets/animation/rotation.cs" Line="73" Column="1" />
-      <File FileName="Assets/Scripts/ParticleSystemController.cs" Line="46" Column="47" />
-      <File FileName="Assets/ParticleAnimator.cs" Line="1" Column="1" />
-      <File FileName="Assets/ParticleManagerScript.cs" Line="25" Column="64" />
+      <File FileName="Assets/animation/rotation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ParticleSystemController.cs" />
+      <File FileName="Assets/ParticleAnimator.cs" />
+      <File FileName="Assets/ParticleManagerScript.cs" />
+      <File FileName="Assets/Scripts/AudioSequence.cs" />
+      <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" />
+      <File FileName="Assets/Scripts/DrynessCalculator.cs" />
+      <File FileName="Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/Reflection/Codebase.cs" Line="383" Column="1" />
+      <File FileName="Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Flow/Options/UnitBase.cs" Line="131" Column="1" />
+      <File FileName="Assets/Scenes/OldPlayScene.unity" Line="1" Column="1" />
+      <File FileName="Assets/Scenes/OldLoadPage.unity" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="My project" selected="True">
-            <Node name="Assets" expanded="True" />
+          <Node name="My project" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="animation" expanded="True" />
+              <Node name="Scenes" expanded="True" />
+              <Node name="Scripts" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8d0b745c-a674-4255-9a85-74837f2de781" />
+  <MultiItemStartupConfigurations />
 </Properties>

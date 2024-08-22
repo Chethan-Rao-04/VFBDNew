@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 467229959}
   - component: {fileID: 467229958}
   m_Layer: 5
-  m_Name: Quantity
+  m_Name: FeedQuantity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,7 +702,7 @@ RectTransform:
   m_GameObject: {fileID: 467229956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7304865, y: 1.6749, z: 1}
+  m_LocalScale: {x: 2.3101995, y: 1.6749, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1833035982}
@@ -734,7 +734,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 22
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -745,7 +745,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quantity
+  m_Text: Feed Quantity
 --- !u!222 &467229959
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2181,7 +2181,7 @@ GameObject:
   - component: {fileID: 964878536}
   - component: {fileID: 964878537}
   m_Layer: 5
-  m_Name: QuantitySlider
+  m_Name: FeedQuantitySlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2398,7 +2398,7 @@ GameObject:
   - component: {fileID: 1039638591}
   - component: {fileID: 1039638590}
   m_Layer: 5
-  m_Name: VibrationSlider
+  m_Name: VibrationIntensitySlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4022,7 +4022,7 @@ GameObject:
   - component: {fileID: 1792306058}
   - component: {fileID: 1792306057}
   m_Layer: 5
-  m_Name: Vibration
+  m_Name: Vibrationintensity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4037,7 +4037,7 @@ RectTransform:
   m_GameObject: {fileID: 1792306055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7304865, y: 1.6749, z: 1}
+  m_LocalScale: {x: 2.4875743, y: 1.6749, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1833035982}
@@ -4069,18 +4069,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 118
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Vibration
+  m_Text: Vibration Intensity
 --- !u!222 &1792306058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4342,7 +4342,7 @@ GameObject:
   - component: {fileID: 1892277388}
   - component: {fileID: 1892277387}
   m_Layer: 5
-  m_Name: QuantityValue
+  m_Name: FeedQuantityValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
