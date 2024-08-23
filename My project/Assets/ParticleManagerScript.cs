@@ -4,11 +4,12 @@ using System.Collections;
 public class ParticleManager : MonoBehaviour
 {
     // Hardcoded values
-    private const int numberOfParticles = 20; // Number of particles
+    private const int numberOfParticles = 100; // Increased number of particles
     private const float radius = 0.4f; // Radius of the cylinder
     private const float length = 6f; // Length of the cylinder
 
     public GameObject particlePrefab;
+    public GameObject smokePrefab; // Reference to the smoke prefab
     private GameObject[] particles;
     private Vector3[] velocities;
 
@@ -25,9 +26,17 @@ public class ParticleManager : MonoBehaviour
             // Reduce the size of the particle by half
             particles[i].transform.localScale *= 0.5f;
 
-            velocities[i] = Random.insideUnitSphere * 0.1f;
+            // Increase vertical motion to a higher value for faster oscillation
+            velocities[i] = new Vector3(
+                Random.Range(-0.1f, 0.1f),
+                Random.Range(2.0f, 4.0f),
+                Random.Range(-0.1f, 0.1f)
+            );
+
             StartCoroutine(ChangeColorAfterTime(particles[i], 7f)); // Delay of 7 seconds
         }
+
+        AddSmokeEffect(); // Add smoke effect to the bottom of the cylinder
     }
 
     void Update()
@@ -37,7 +46,7 @@ public class ParticleManager : MonoBehaviour
             Vector3 position = particles[i].transform.position;
             Vector3 velocity = velocities[i];
 
-            position += velocity;
+            position += velocity * Time.deltaTime;
 
             // Check for collisions with the cylindrical boundary in 2D (y and z axis)
             float distanceFromCenter = Mathf.Sqrt(position.y * position.y + position.z * position.z);
@@ -46,7 +55,7 @@ public class ParticleManager : MonoBehaviour
                 // Reflect the velocity in the yz-plane
                 Vector3 normal = new Vector3(0, position.y, position.z).normalized;
                 velocity = Vector3.Reflect(velocity, normal);
-                position += velocity;
+                position += velocity * Time.deltaTime;
             }
 
             // Check for collisions with the cylinder's length boundaries (x axis)
@@ -82,6 +91,25 @@ public class ParticleManager : MonoBehaviour
         float z = distance * Mathf.Sin(angle);
         float x = Random.Range(-length / 2, length / 2);
         return new Vector3(x, Mathf.Abs(y), z); // Ensure y is positive to stay in the upper half
+    }
+
+    void AddSmokeEffect()
+    {
+        // Instantiate the smoke effect at the bottom of the cylinder
+        GameObject smoke = Instantiate(smokePrefab, new Vector3(0, -length / 2, 0), Quaternion.identity, transform);
+
+        // Scale the smoke effect to match the radius of the cylinder
+        float scale = radius * 2; // Adjust the scale if needed
+        smoke.transform.localScale = new Vector3(scale, 1, scale); // Adjust the y scale to fit the bottom
+
+        // Optionally adjust the particle system properties if needed
+        ParticleSystem ps = smoke.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            var main = ps.main;
+            main.loop = true;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
+        }
     }
 
     IEnumerator ChangeColorAfterTime(GameObject particle, float delay)
