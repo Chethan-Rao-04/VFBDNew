@@ -6,7 +6,7 @@ public class ParticleManager : MonoBehaviour
     // Hardcoded values
     private const int numberOfParticles = 100; // Increased number of particles
     private const float radius = 0.4f; // Radius of the cylinder
-    private const float length = 6f; // Length of the cylinder
+    private const float length = 5f; // Length of the cylinder
 
     public GameObject particlePrefab;
     public GameObject smokePrefab; // Reference to the smoke prefab
@@ -33,10 +33,12 @@ public class ParticleManager : MonoBehaviour
                 Random.Range(-0.1f, 0.1f)
             );
 
-            StartCoroutine(ChangeColorAfterTime(particles[i], 7f)); // Delay of 7 seconds
+            // Update delay to double the previous value
+            StartCoroutine(ChangeColorAfterTime(particles[i], 14f)); // Delay of 14 seconds
         }
 
-        AddSmokeEffect(); // Add smoke effect to the bottom of the cylinder
+        // Add the smoke effect
+        AddSmokeEffect();
     }
 
     void Update()
@@ -93,25 +95,6 @@ public class ParticleManager : MonoBehaviour
         return new Vector3(x, Mathf.Abs(y), z); // Ensure y is positive to stay in the upper half
     }
 
-    void AddSmokeEffect()
-    {
-        // Instantiate the smoke effect at the bottom of the cylinder
-        GameObject smoke = Instantiate(smokePrefab, new Vector3(0, -length / 2, 0), Quaternion.identity, transform);
-
-        // Scale the smoke effect to match the radius of the cylinder
-        float scale = radius * 2; // Adjust the scale if needed
-        smoke.transform.localScale = new Vector3(scale, 1, scale); // Adjust the y scale to fit the bottom
-
-        // Optionally adjust the particle system properties if needed
-        ParticleSystem ps = smoke.GetComponent<ParticleSystem>();
-        if (ps != null)
-        {
-            var main = ps.main;
-            main.loop = true;
-            main.simulationSpace = ParticleSystemSimulationSpace.World;
-        }
-    }
-
     IEnumerator ChangeColorAfterTime(GameObject particle, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -120,5 +103,15 @@ public class ParticleManager : MonoBehaviour
         {
             renderer.material.color = Color.red;
         }
+    }
+
+    void AddSmokeEffect()
+    {
+        // Instantiate the smoke effect at the bottom of the cylinder
+        GameObject smoke = Instantiate(smokePrefab, new Vector3(0, -length / 2, 0), Quaternion.identity, transform);
+
+        // Adjust the scale of the smoke effect to fit the radius of the cylinder
+        float cylinderDiameter = radius * 2;
+        smoke.transform.localScale = new Vector3(cylinderDiameter, 1, cylinderDiameter); // Adjust scale
     }
 }
