@@ -6,7 +6,7 @@ public class ParticleManager : MonoBehaviour
     // Hardcoded values
     private const int numberOfParticles = 100; // Increased number of particles
     private const float radius = 0.4f; // Radius of the cylinder
-    private const float length = 5f; // Length of the cylinder
+    private const float length = 4f; // Length of the cylinder
 
     public GameObject particlePrefab;
     public GameObject smokePrefab; // Reference to the smoke prefab

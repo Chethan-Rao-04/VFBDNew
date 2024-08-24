@@ -421,6 +421,7 @@
 "Assets/Scripts/SceneLoader.cs"
 "Assets/Scripts/SettingsPage.cs"
 "Assets/Scripts/SmokeEffectManager.cs"
+"Assets/Scripts/vibration.cs"
 "Assets/Shower.cs"
 "Assets/Simulation.cs"
 "Assets/Wall.cs"

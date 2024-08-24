@@ -70,6 +70,7 @@
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/CFX_LightIntensityFade.cs" />
     <Compile Include="Assets/PathCreator/Examples/Scripts/PathSceneTool.cs" />
     <Compile Include="Assets/Shower.cs" />
+    <Compile Include="Assets/Scripts/vibration.cs" />
     <Compile Include="Assets/WaypointPath.cs" />
     <Compile Include="Assets/Config.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/CFX_AutoStopLoopedEffect.cs" />
