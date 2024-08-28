@@ -1,27 +1,43 @@
 using UnityEngine;
 using System.Collections;
 
-public class ParticleManager : MonoBehaviour
+public class ParticleAndModelManager : MonoBehaviour
 {
-
-    private const int numberOfParticles = 200; 
+    private const int numberOfParticles = 200;
     private const float radius = 0.4f;
     private const float length = 3.7f;
+    private const float horizontalMovementRange = 0.02f;  // Range for initial random horizontal movement
+    private const float randomHorizontalFactor = 0.001f;  // Factor for continuous random horizontal movement
 
     public GameObject particlePrefab;
     public GameObject smokePrefab;
+    public GameObject model;  // Reference to the vibrating model
+    public float particleFrequency = 20f;  // Frequency for particles
+    public float modelFrequency = 20f;     // Frequency for the model
+
+    public float particleAmplitude = 0.2f; // Amplitude for particles
+    public float modelAmplitude = 0.002f;  // Amplitude for the model
+
     private GameObject[] particles;
+    private Vector3[] initialPositions;
     private Vector3[] velocities;
+    private Vector3 modelOriginalPosition;
+    private float particleOscillationOffset;
+    private float modelOscillationOffset;
 
     void Start()
     {
         particles = new GameObject[numberOfParticles];
+        initialPositions = new Vector3[numberOfParticles];
         velocities = new Vector3[numberOfParticles];
 
         for (int i = 0; i < numberOfParticles; i++)
         {
             Vector3 randomPosition = RandomPointInUpperHalfCylinder();
             particles[i] = Instantiate(particlePrefab, randomPosition, Quaternion.identity, transform);
+
+            // Store the initial position
+            initialPositions[i] = randomPosition;
 
             // Reduce the size of the particle to a quarter
             particles[i].transform.localScale *= 0.25f;
@@ -34,54 +50,84 @@ public class ParticleManager : MonoBehaviour
                 particleRenderer.receiveShadows = false;
             }
 
-            // Increase vertical motion to a higher value for faster oscillation
+            // Initialize with small random horizontal velocity
             velocities[i] = new Vector3(
-                Random.Range(-0.1f, 0.1f),
-                Random.Range(2.0f, 4.0f),
-                Random.Range(-0.1f, 0.1f)
+                Random.Range(-horizontalMovementRange, horizontalMovementRange),
+                0,
+                Random.Range(-horizontalMovementRange, horizontalMovementRange)
             );
 
             StartCoroutine(ChangeColorAfterTime(particles[i], 14f));
         }
 
-        AddSmokeEffect();
+        // Store the original position of the model
+        if (model != null)
+        {
+            modelOriginalPosition = model.transform.localPosition;
+        }
+
     }
 
     void Update()
     {
+        // Calculate the oscillation offsets for particles and the model separately
+        particleOscillationOffset = Mathf.Sin(Time.time * particleFrequency) * particleAmplitude;
+        modelOscillationOffset = Mathf.Sin(Time.time * modelFrequency) * modelAmplitude;
+
+        // Update particle positions
         for (int i = 0; i < numberOfParticles; i++)
         {
-            Vector3 position = particles[i].transform.position;
-            Vector3 velocity = velocities[i];
+            Vector3 position = initialPositions[i];
 
-            position += velocity * Time.deltaTime;
+            // Apply the vertical oscillation to the y-axis
+            float randomVerticalOffset = Random.Range(-0.05f, 0.05f); // Add a little randomness to vertical movement
+            position.y += particleOscillationOffset + randomVerticalOffset;
 
-            float distanceFromCenter = Mathf.Sqrt(position.y * position.y + position.z * position.z);
-            if (distanceFromCenter > radius)
+            // Update position with velocity (for random horizontal movement)
+            position += velocities[i] * Time.deltaTime;
+
+            // Apply a small random factor to horizontal movement
+            position.x += Random.Range(-randomHorizontalFactor, randomHorizontalFactor);
+            position.z += Random.Range(-randomHorizontalFactor, randomHorizontalFactor);
+
+            // Check for collisions with other particles
+            for (int j = 0; j < numberOfParticles; j++)
             {
-                Vector3 normal = new Vector3(0, position.y, position.z).normalized;
-                velocity = Vector3.Reflect(velocity, normal);
-                position += velocity * Time.deltaTime;
+                if (i != j)
+                {
+                    float distance = Vector3.Distance(position, particles[j].transform.position);
+                    if (distance < 0.04f) // Approximate collision radius (0.04 to make it more responsive)
+                    {
+                        // Resolve collision by reflecting the velocities
+                        Vector3 direction = (position - particles[j].transform.position).normalized;
+                        velocities[i] = Vector3.Reflect(velocities[i], direction);
+                        velocities[j] = Vector3.Reflect(velocities[j], -direction);
+
+                        // Separate the particles slightly to avoid overlap
+                        position += direction * (0.04f - distance);
+                    }
+                }
             }
 
-            if (position.x < -length / 2 || position.x > length / 2)
-            {
-                velocity.x = -velocity.x;
-                position.x = Mathf.Clamp(position.x, -length / 2, length / 2);
-            }
-
-            if (position.y < 0)
-            {
-                velocity.y = -velocity.y;
-                position.y = Mathf.Clamp(position.y, 0, radius);
-            }
-
+            // Clamp the position within the cylinder
             position.x = Mathf.Clamp(position.x, -length / 2, length / 2);
             position.z = Mathf.Clamp(position.z, -radius, radius);
-            position.y = Mathf.Clamp(position.y, 0, Mathf.Sqrt(radius * radius - position.z * position.z));
+            position.y = Mathf.Clamp(position.y, 0, radius);
 
             particles[i].transform.position = position;
-            velocities[i] = velocity;
+
+            // Slightly modify horizontal velocities over time for continuous random movement
+            velocities[i] += new Vector3(
+                Random.Range(-0.001f, 0.001f),
+                0,
+                Random.Range(-0.001f, 0.001f)
+            );
+        }
+
+        // Apply the model's vertical oscillation
+        if (model != null)
+        {
+            model.transform.localPosition = modelOriginalPosition + new Vector3(0, modelOscillationOffset, 0);
         }
     }
 
@@ -105,11 +151,4 @@ public class ParticleManager : MonoBehaviour
         }
     }
 
-    void AddSmokeEffect()
-    {
-        GameObject smoke = Instantiate(smokePrefab, new Vector3(0, -length / 2, 0), Quaternion.identity, transform);
-
-        float cylinderDiameter = radius * 2;
-        smoke.transform.localScale = new Vector3(cylinderDiameter, 1, cylinderDiameter);
-    }
 }
