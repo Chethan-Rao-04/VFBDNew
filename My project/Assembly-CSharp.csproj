@@ -65,6 +65,7 @@
     <Compile Include="Assets/Scripts/HomePage.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo_RandomDir.cs" />
     <Compile Include="Assets/PathCreator/Examples/Scripts/PathPlacer.cs" />
+    <Compile Include="Assets/Scripts/singleParticle.cs" />
     <Compile Include="Assets/Wall.cs" />
     <Compile Include="Assets/PointHandler/ImageToggler.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Scripts/CFX_LightIntensityFade.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets/HoverImageToggle.cs" />
     <Compile Include="Assets/Scripts/DrynessCalculator.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Spawn System/CFX_SpawnSystem.cs" />
+    <Compile Include="Assets/Scripts/ParticleaAnimationNew.cs" />
     <Compile Include="Assets/PathCreator/Examples/Scripts/PathSpawner.cs" />
     <Compile Include="Assets/ApplyTransparentMaterial.cs" />
     <Compile Include="Assets/JMO Assets/WarFX/Demo/Assets/WFX_Demo.cs" />
